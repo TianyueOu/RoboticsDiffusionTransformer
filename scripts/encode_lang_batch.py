@@ -16,7 +16,7 @@ TARGET_DIR = "data/datasets/agilex/tfrecords/"
 
 # Note: if your GPU VRAM is less than 24GB, 
 # it is recommended to enable offloading by specifying an offload directory.
-OFFLOAD_DIR = None  # Specify your offload directory here, ensuring the directory exists.
+OFFLOAD_DIR = "data/offload"  # Specify your offload directory here, ensuring the directory exists.
 
 def main():
     with open(CONFIG_PATH, "r") as fp:

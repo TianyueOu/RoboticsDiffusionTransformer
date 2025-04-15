@@ -18,8 +18,8 @@ class HDF5VLADataset:
     def __init__(self) -> None:
         # [Modify] The path to the HDF5 dataset directory
         # Each HDF5 file contains one episode
-        HDF5_DIR = "data/datasets/agilex/rdt_data/"
-        self.DATASET_NAME = "agilex"
+        HDF5_DIR = "data/rdt_dataPackages/water_plant_1/"
+        self.DATASET_NAME = "water_plant_1"
         
         self.file_paths = []
         for root, _, files in os.walk(HDF5_DIR):
@@ -145,8 +145,8 @@ class HDF5VLADataset:
             if isinstance(instruction, list):
                 instruction = np.random.choice(instruction)
             # You can also use precomputed language embeddings (recommended)
-            # instruction = "path/to/lang_embed.pt"
-            
+            #instruction = "path/to/lang_embed.pt"
+            instruction ="/home/oty/code/RoboticsDiffusionTransformer/data/empty_lang_embed.pt"#oty0415取消注释
             # Assemble the meta
             meta = {
                 "dataset_name": self.DATASET_NAME,

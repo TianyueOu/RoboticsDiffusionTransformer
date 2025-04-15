@@ -9,9 +9,9 @@ export VISION_ENCODER_NAME="google/siglip-so400m-patch14-384"
 export OUTPUT_DIR="./checkpoints/rdt-finetune-1b"
 export CFLAGS="-I/usr/include"
 export LDFLAGS="-L/usr/lib/x86_64-linux-gnu"
-export CUTLASS_PATH="/path/to/cutlass"
+export CUTLASS_PATH="/home/oty/code/cutlass"
 
-export WANDB_PROJECT="robotics_diffusion_transformer"
+export WANDB_PROJECT="robotics_diffusion_transformer_oty0415"
 
 if [ ! -d "$OUTPUT_DIR" ]; then
     mkdir "$OUTPUT_DIR"
@@ -45,10 +45,10 @@ deepspeed --hostfile=hostfile.txt main.py \
     --dataset_type="finetune" \
     --state_noise_snr=40 \
     --load_from_hdf5 \
-    --report_to=wandb
-
+    --report_to=wandb \
+    --precomp_lang_embed= "data/offload"\ 
     # Use this to resume training from some previous checkpoint
     # --resume_from_checkpoint="checkpoint-36000" \
     # Use this to load from saved lanuage instruction embeddings,
     # instead of calculating it during training
-    # --precomp_lang_embed \
+
